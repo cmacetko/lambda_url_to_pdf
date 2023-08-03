@@ -7,14 +7,21 @@ const sendRes = function(callback, IsSucesso, data){
 	if( IsSucesso == true )
 	{
 		
-        callback.status(200).json(data);
+		var response = {
+		statusCode: 200,
+		body: data
+		};
 		
 	}else{
 		
-        callback.status(500).json(data);
+		var response = {
+		statusCode: 500,
+		body: data
+		};
 		
-	}    
-
+	}
+	
+	callback(null, response);
 
 };
 
